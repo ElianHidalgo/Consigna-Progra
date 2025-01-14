@@ -1,0 +1,3 @@
+Nombre               Cantidad   Código    Precio    
+jakakl               312        21         32.00     
+uqj                  32         43         21.00     
