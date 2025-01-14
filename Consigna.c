@@ -36,6 +36,8 @@ int main() {
         printf("¿Qué acción desea realizar sobre los productos?\n");
         printf("1. Ingresar\n2. Editar\n3. Eliminar\n4. Listado de Productos\n5. Salir\n");
         printf("Acción: ");
+
+        //Valida que sea un numero entero
         while (1) {
           if (scanf("%d", &eleccion) == 1) {
             getchar();
