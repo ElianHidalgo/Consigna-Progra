@@ -4,7 +4,7 @@
 
 // Definición de constantes
 #define MaxProduc 100                                // Máximo número de productos permitidos
-#define FILE_PATH "C:\\Users\\Pc\\Desktop\\CONSIGNA ENTREGA\\inventario.txt" // Ruta del archivo de inventario
+#define FILE_PATH "C:\\CONSIGNA PROGRA\\inventario.txt" // Ruta del archivo de inventario
 
 // Estructura que representa un producto en el inventario
 struct Producto {
