@@ -1,4 +1,4 @@
-#include "prueba.h" // Incluir el archivo de encabezado necesario
+#include "funciones.h" // Incluir el archivo de encabezado necesario
 
 int main() {
 
