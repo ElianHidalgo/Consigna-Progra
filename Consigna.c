@@ -49,8 +49,6 @@ int main() {
           }
         }
 
-
-        if (eleccion<0 || eleccion >4
         // Realizar la acción correspondiente según la elección
         switch (eleccion) {
             case 1:
