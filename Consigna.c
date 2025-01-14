@@ -36,9 +36,19 @@ int main() {
         printf("¿Qué acción desea realizar sobre los productos?\n");
         printf("1. Ingresar\n2. Editar\n3. Eliminar\n4. Listado de Productos\n5. Salir\n");
         printf("Acción: ");
-        scanf("%d", &eleccion); // Leer la elección del usuario
-        getchar(); // Consumir el caracter vacio
+        while (1) {
+          if (scanf("%d", &eleccion) == 1) {
+            getchar();
+              break; // Si la lectura fue exitosa, salimos del bucle
+          } else {
+              // Si no fue un número entero, mostramos un mensaje de error y limpiamos el buffer
+              printf("No es un numero de la eleccion: ");
+              while (getchar() != '\n'); // Limpiar el buffer de entrada
+          }
+        }
 
+
+        if (eleccion<0 || eleccion >4
         // Realizar la acción correspondiente según la elección
         switch (eleccion) {
             case 1:
