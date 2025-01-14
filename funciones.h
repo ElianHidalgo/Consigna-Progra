@@ -4,7 +4,6 @@
 
 // Definición de constantes
 #define MaxProduc 100                                // Máximo número de productos permitidos
-#define IVA 0.12                                     // Valor del IVA
 #define FILE_PATH "C:\\Users\\Pc\\Desktop\\CONSIGNA ENTREGA\\inventario.txt" // Ruta del archivo de inventario
 
 // Estructura que representa un producto en el inventario
@@ -72,18 +71,35 @@ void IngresarProducto(struct Producto productos[], int *productoacount) {
     fgets(productos[*productoacount].nombre, 50, stdin);
     productos[*productoacount].nombre[strcspn(productos[*productoacount].nombre, "\n")] = 0; // Eliminar salto de línea
 
+    
     printf("Ingrese la cantidad del producto: ");
-    scanf("%d", &productos[*productoacount].cantidad);
-    getchar();
+    while (1) {
+      if (scanf("%d", &productos[*productoacount].cantidad) == 1) {
+        getchar();
+          break; // Si la lectura fue exitosa, salimos del bucle
+      } else {
+          // Si no fue un número entero, mostramos un mensaje de error y limpiamos el buffer
+          printf("Por favor, Ingrese una cantidad valida: ");
+          while (getchar() != '\n'); // Limpiar el buffer de entrada
+      }
+    }
 
     printf("Ingrese el código del producto (alfanumérico): ");
     fgets(productos[*productoacount].codigo, 20, stdin);
     productos[*productoacount].codigo[strcspn(productos[*productoacount].codigo, "\n")] = 0; // Eliminar salto de línea
 
+    
     printf("Ingrese el precio del producto: ");
-    scanf("%f", &productos[*productoacount].precio);
-    getchar();
-
+    while (1) {
+        if (scanf("%f", &productos[*productoacount].precio) == 1) {
+            getchar();
+            break; // Si la lectura fue exitosa, salimos del bucle
+        } else {
+            // Si no fue un número entero, mostramos un mensaje de error y limpiamos el buffer
+            printf("Por favor, ingrese un precio válido: ");
+            while (getchar() != '\n'); // Limpiar el buffer de entrada
+        }
+    }
     // Incrementar el contador de productos y guardar en el archivo
     (*productoacount)++;
     guardarProductos(productos, *productoacount);
@@ -115,13 +131,29 @@ void editarProducto(struct Producto productos[], int productoacount) {
                 break;
             case 2:
                 printf("Nueva cantidad: ");
-                scanf("%d", &productos[i].cantidad);
-                getchar();
+                while (1) {
+                    if (scanf("%d", &productos[i].cantidad)== 1) {
+                        getchar();
+                        break; // Si la lectura fue exitosa, salimos del bucle
+                    } else {
+                        // Si no fue un número entero, mostramos un mensaje de error y limpiamos el buffer
+                        printf("Por favor, ingrese una cantidad válida: ");
+                        while (getchar() != '\n'); // Limpiar el buffer de entrada
+                    }
+                }
                 break;
             case 3:
                 printf("Nuevo precio: ");
-                scanf("%f", &productos[i].precio);
-                getchar();
+                while (1) {
+                    if (scanf("%f", &productos[i].precio)== 1) {
+                        getchar();
+                        break; // Si la lectura fue exitosa, salimos del bucle
+                    } else {
+                        // Si no fue un número entero, mostramos un mensaje de error y limpiamos el buffer
+                        printf("Por favor, ingrese un precio válido: ");
+                        while (getchar() != '\n'); // Limpiar el buffer de entrada
+                    }
+                }
                 break;
             case 4:
                 printf("Nuevo código (alfanumérico): ");
